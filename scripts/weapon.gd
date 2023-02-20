@@ -12,7 +12,7 @@ func _ready():
 
 
 func shoot(pos: Vector2, dir: Vector2) -> void:
-	if !player.is_local_authority():
+	if !player.is_local_authority:
 		print("Fucking huge mess somewhere, this should mever happen!")
 		return
 
@@ -32,7 +32,7 @@ func shoot_server(pos: Vector2, dir: Vector2) -> void:
 
 @rpc # Called on _all_ clients
 func shoot_client(pos : Vector2, dir: Vector2) -> void:
-	if player.is_local_authority(): return
+	if player.is_local_authority: return
 	shoot_impl(pos, dir)
 
 

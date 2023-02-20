@@ -25,7 +25,7 @@ func start_network() -> void:
 	multiplayer.set_multiplayer_peer(peer)
 
 
-func create_player(id : int) -> void:
+func create_player(id: int) -> void:
 	# Instantiate a new player for this client.
 	var player = player_scene.instantiate()
 
@@ -41,7 +41,7 @@ func create_player(id : int) -> void:
 	players += 1
 
 
-func destroy_player(id : int) -> void:
+func destroy_player(id: int) -> void:
 	# Delete this peer's node.
 	game.get_node(str(id)).queue_free()
 	Logs.add("Player left [" + str(id) + "]")
