@@ -7,11 +7,27 @@
 script = ExtResource("1_yhcro")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://scenes/player.tscn", "res://scenes/bullet.tscn")
+_spawnable_scenes = PackedStringArray("res://scenes/player.tscn", "res://scenes/spawner.tscn", "res://scenes/enemy.tscn", "res://scenes/bullet.tscn")
 spawn_path = NodePath("../Game")
+
+[node name="MobsSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://scenes/enemy.tscn")
+spawn_path = NodePath("../Mobs")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(7.0625, 7.0625)
+texture = ExtResource("2_bemw0")
 
 [node name="Game" type="Node" parent="."]
 
-[node name="Icon" type="Sprite2D" parent="."]
-scale = Vector2(7.0625, 7.0625)
-texture = ExtResource("2_bemw0")
+[node name="obstacle" type="StaticBody2D" parent="Game"]
+collision_layer = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Game/obstacle"]
+polygon = PackedVector2Array(-256, -512, -128, -576, 64, -576, 192, -512, 192, -576, 64, -640, -128, -640, -256, -576)
+
+[node name="Polygon2D" type="Polygon2D" parent="Game/obstacle"]
+polygon = PackedVector2Array(-256, -512, -128, -576, 64, -576, 192, -512, 192, -576, 64, -640, -128, -640, -256, -576)
+
+[node name="Mobs" type="Node" parent="."]

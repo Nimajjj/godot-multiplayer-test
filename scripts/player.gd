@@ -18,7 +18,9 @@ func _ready():
 	Cam.enabled = is_local_authority
 	if is_local_authority:
 		modulate = Color(randf(), randf(), randf())
-		
+
+
+	
 #	if is_local_authority && multiplayer.get_unique_id() != 1:
 #		Logs.rpc_id(1, "add", "Hello World!", Logs.LVL_DEBUG)
 

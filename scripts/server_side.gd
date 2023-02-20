@@ -8,4 +8,4 @@ func _ready():
 	
 	
 func add_log(txt: String, _log_level: String = Logs.LVL_INFO) -> void:
-	LogsLabel.text += txt
+	LogsLabel.text += txt + "\n"

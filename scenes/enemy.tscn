@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://bes81jf2kug5o"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_cxhrf"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_bcfnl"]
+properties/0/path = NodePath(".:health_sync")
+properties/0/spawn = true
+properties/0/sync = true
+properties/1/path = NodePath(".:global_pos_sync")
+properties/1/spawn = true
+properties/1/sync = true
+properties/2/path = NodePath("ProgressBar:value")
+properties/2/spawn = true
+properties/2/sync = true
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_cxhrf")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.596078, 0, 0, 1)
+polygon = PackedVector2Array(-64, 0, -48, -48, 0, -64, 48, -48, 64, 0, 48, 48, 0, 64, -48, 48)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-64, 0, -48, -48, 0, -64, 48, -48, 64, 0, 48, 48, 0, 64, -48, 48)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(0.74902, 0, 0, 1)
+offset_left = -64.0
+offset_top = -88.0
+offset_right = 64.0
+offset_bottom = -72.0
+step = 1.0
+value = 100.0
+show_percentage = false
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_bcfnl")
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

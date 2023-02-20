@@ -15,27 +15,31 @@ script = ExtResource("1_cke4t")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 color = Color(0.129412, 0.129412, 0.129412, 1)
 
 [node name="LogsLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 608.0
+offset_right = 1920.0
+offset_bottom = 1040.0
+theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
+text = "Test - Multiplayer - 02
+Server Side
+"
 
 [node name="TextEdit" type="TextEdit" parent="."]
 layout_mode = 0
-offset_top = 608.0
-offset_right = 1024.0
-offset_bottom = 648.0
+offset_top = 1040.0
+offset_right = 1792.0
+offset_bottom = 1080.0
 placeholder_text = "command"
 
 [node name="SendButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1024.0
-offset_top = 608.0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = 1792.0
+offset_top = 1040.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 text = "SEND"

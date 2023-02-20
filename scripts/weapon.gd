@@ -16,8 +16,8 @@ func shoot(pos: Vector2, dir: Vector2) -> void:
 		print("Fucking huge mess somewhere, this should mever happen!")
 		return
 
-	shoot_impl(pos, dir)
 	rpc_id(1, "shoot_server", pos, dir)
+	shoot_impl(pos, dir)
 	
 	
 @rpc("any_peer")
@@ -28,7 +28,8 @@ func shoot_server(pos: Vector2, dir: Vector2) -> void:
 		return
 
 	rpc("shoot_client", pos, dir)
-
+	shoot_impl(pos, dir)
+	
 
 @rpc # Called on _all_ clients
 func shoot_client(pos : Vector2, dir: Vector2) -> void:
